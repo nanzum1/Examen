@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="p-3">
+        <h2>Lista Peliculas</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Director</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Precio Compra</th>
+                <th scope="col">Precio Arriendo</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pelicula in peliculas %}
+                <tr>
+                    <th scope="row">{{pelicula.id}}</th>
+                    <td>{{pelicula.titulo}}</td>
+                    <td>{{pelicula.director}}</td>
+                    <td>{{pelicula.genero}}</td>
+                    <td>${{pelicula.precio_compra|floatformat:2}}</td>
+                    <td>${{pelicula.precio_arriendo|floatformat:2}}</td>
+                    <td>{{pelicula.stock}}</td>
+                    <td><a href="/inventario/peliculas/{{pelicula.id}}/detalle/">Detalles</a></td>
+                    <td><a href="/inventario/peliculas/{{pelicula.id}}/editar/">Editar</a></td>
+                    <td><a href="/inventario/peliculas/{{pelicula.id}}/eliminar/">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

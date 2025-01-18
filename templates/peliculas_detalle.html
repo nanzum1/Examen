@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="p-3">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">${{pelicula.titulo}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{pelicula.genero}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{pelicula.director}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{pelicula.descripcion}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">${{pelicula.precio_compra}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">${{pelicula.precio_arriendo}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{pelicula.stock}}</h6>
+          <a href="/inventario/transacciones/usuario/{{libro.id}}" class="card-link">Comprar </a>
+          <a href="/inventario/transacciones/usuario/{{libro.id}}" class="card-link">Arrendar </a>
+        </div>
+      </div>
+</div>
+{% endblock %}

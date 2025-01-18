@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="p-3">
+        <h2>Listado de Transacciones</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Pelicula</th>
+                <th scope="col">Disponibilidad</th>
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Fecha Termino</th>
+                <th scope="col">Estado</th>
+            </tr>
+            </thead>
+        {%for transaccion in transacciones %}
+            <tbody>
+                    <tr>
+                    <th scope="row">{{transaccion.id}}</th>
+                    <td>{{transaccion.usuario}}</td>
+                    <td>{{transaccion.peliculas}}</td>
+                    <td>{{transaccion.tipo}}</td>
+                    <td>{{transaccion.fecha_inicio}}</td>
+                    <td>{{transaccion.fecha_termino}}</td>
+                    <td>{{transaccion.estado}}</td>
+                    </tr>
+            </tbody>
+        {%endfor%}
+        </table>
+        <a href="/inventario/transacciones/nueva/">Nueva Transaccion</a>
+    </div>
+
+{% endblock %}

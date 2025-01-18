@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="p-3">
+    <h2>Lista usuarios</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+        </tr>
+        </thead>
+    {%for usuario in usuarios %}
+        <tbody>
+                <tr>
+                  <th scope="row">{{usuario.id}}</th>
+                  <td>{{usuario.first_name}}</td>
+                  <td>{{usuario.last_name}}</td>
+                  <td>{{usuario.email}}</td>
+                </tr>
+        </tbody>
+    {%endfor%}
+    </table>
+    <a href="/inventario/usuarios_nuevo">Nuevo usuario</a>
+</div>
+
+{% endblock %}
